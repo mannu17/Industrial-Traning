@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Voter-Registration UI Design | Html CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display-swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: rgb(105, 232, 217);
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: #f17ea3;
+    }
+
+    .container {
+      position: relative;
+      min-width: 1100px;
+      min-height: 550px;
+      display: flex;
+      z-index: 1000;
+    }
+
+    .container .contactInfo {
+      position: absolute;
+      top: 40px;
+      width: 350px;
+      height: calc(100% - 80px);
+      background: rgb(105, 232, 217);
+      z-index: 1;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .container .contactInfo h2 {
+      color: black;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .container .contactInfo ul.info {
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .container .contactInfo ul.info li {
+      position: relative;
+      list-style: none;
+      display: flex;
+      margin: 20px 0;
+      cursor: pointer;
+      align-items: flex-start;
+    }
+
+    .container .contactInfo ul.info li span:nth-child(1) {
+      width: 30px;
+      min-width: 30px;
+    }
+
+    .container .contactInfo ul.info li span:nth-child(1) img {
+      max-width: 100%;
+      filter: invert(1);
+    }
+
+    .container .contactInfo ul.info li span:nth-child(2) {
+      color: black;
+      margin-left: 10px;
+      font-weight: 300;
+    }
+
+    .container .contactInfo ul.sci {
+      position: relative;
+      display: flex;
+    }
+
+    .container .contactInfo ul.sci li {
+      list-style: none;
+      margin-right: 15px;
+    }
+
+    .container .contactInfo ul.sci li a {
+      text-decoration: none;
+    }
+
+    .container .contactInfo ul.sci li a img {
+      filter: invert(1);
+      height: 35px;
+      width: 35px;
+    }
+
+    .container .contactForm {
+      position: absolute;
+      padding: 70px 50px;
+      padding-left: 250px;
+      margin-left: 150px;
+      width: calc(100% - 150px);
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 50px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .container .contactForm h2 {
+      color: black;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .container .contactForm .formBox {
+      justify-content: space-between;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 30px;
+    }
+
+    .container .contactForm .formBox .inputBox {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .container .contactForm .formBox .inputBox.w50 {
+      width: 47%;
+    }
+
+    .container .contactForm .formBox .inputBox.w100 {
+      width: 100%;
+    }
+
+    .container .contactForm .formBox .inputBox input,
+    .container .contactForm .formBox .inputBox textarea {
+      width: 100%;
+      resize: none;
+      padding: 5px 0;
+      font-size: 18px;
+      font-weight: 300;
+      color: #333;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #777;
+    }
+
+    .container .contactForm .formBox .inputBox textarea {
+      height: 120px;
+    }
+
+    .container .contactForm .formBox .inputBox span {
+      position: absolute;
+      Left: 0;
+      padding: 5px 0;
+      pointer-events: none;
+      font-size: 18px;
+      font-weight: 300;
+      transition: 0.3s;
+    }
+
+    .container .contactForm .formBox .inputBox input:focus~span,
+    .container .contactForm .formBox .inputBox input:valid~span,
+    .container .contactForm .formBox .inputBox textarea:focus~span,
+    .container .contact Form .formBox .inputBox textarea:valid~span {
+      transform: translateY(-20px);
+      font-size: 12px;
+      font-weight: 400;
+      Letter-spacing: 1px;
+      color: #095a55;
+      font-weight: 500;
+    }
+
+    .container .contactForm .formBox .inputBox input[type="submit"] {
+      position: relative;
+      cursor: pointer;
+      background: #f17ea3;
+      color: black;
+      border: none;
+      max-width: 150px;
+      padding: 12px;
+    }
+
+    .container .contactForm .formBox .inputBox input[type="submit"]:hover {
+      background: rgb(105, 232, 217);
+    }
+
+    @media(max-width: 1200px) {
+      .container {
+        width: 90%;
+        min-width: auto;
+        margin: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      .container .contactInfo {
+        top: 0;
+        height: 550px;
+        position: relative;
+        box-shadow: none;
+      }
+
+      .container .contactForm {
+        position: relative;
+        width: calc(100% - 350px);
+        padding-left: 0;
+        margin-left: 0;
+        padding: 40px;
+        height: 550px;
+        box-shadow: none;
+      }
+    }
+
+    @media(max-width: 991px) {
+      section {
+        background: #f17ea3;
+      }
+
+      section::before {
+        display: none;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .container .contactForm {
+        width: 100%;
+        height: auto;
+      }
+
+      .container .contactInfo {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+      }
+
+      .container .contactInfo ul.sci {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .container .contactForm {
+        padding: 25px;
+      }
+
+      .container .contactInfo {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .container .contactInfo ul.sci {
+        margin-top: 40px;
+      }
+
+      .container .contactForm .formBox .inputBox .w50 {
+        width: 100%;
+      }
+    }
+  </style>
+  <section>
+    <div class="container">
+      <div class="contactInfo">
+        <div>
+          <h2>Contact Info</h2>
+          <ul class="info">
+            <li> <span><img src="http://cdn.onlinewebfonts.com/svg/img_175952.png"></span> <span>2912 Rohini sec-14<br>New Delhi, CA<br>110893</span> </li>
+            <li> <span><img src="https://www.freepngimg.com/thumb/machine/57193-3-government-photos-free-download-png-hd.png"></span> <span>delhi.gov.in</span> </li>
+            <li> <span><img src="https://maxcdn.icons8.com/Share/icon/p1em/Logos/whatsapp1600.png"></span> <span>230-290-298</span> </li>
+          </ul>
+        </div>
+        <ul class="sci">
+          <li><a href="#"><img src="https://sguru.org/wp-content/uploads/2018/02/facebook-outline-transparent-image-38365-800.png"></a></li>
+          <li><a href="#"><img src="https://logos-download.com/wp-content/uploads/2016/02/Twitter_Logo_new.png"></a></li>
+          <li><a href="#"><img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png"></a></li>
+          <li><a href="#"><img src="http://pngimg.com/uploads/pinterest/pinterest_PNG63.png"></a></li>
+          <li><a href="#"><img src="http://pngimg.com/uploads/linkedIn/linkedIn_PNG24.png"></a></li>
+        </ul>
+      </div>
+      <div class="contactForm">
+        <h2>VOTER REGISTRATION</h2>
+        <div class="formBox">
+          <div class="inputBox w50"> <input type="text" required> <span>First Name</span> </div>
+          <div class="iputBox w50"> <input type="text" required> <span>Last Name</span> </div>
+          <div class="inputBox w50"> <input type="email" required> <span>Email Address</span> </div>
+          <div class="inputBox w50"> <input type="text" required> <span>Mobile Number</span> </div>
+          <div class="inputBox w100"> <textarea required></textarea> <span>Write your message here...</span> </div>
+          <div class="inputBox w100"> <input type="submit" value="send"> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
